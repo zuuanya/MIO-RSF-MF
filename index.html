@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-   
     <meta charset="UTF-8">
-    <meta name="viewport" content=  "width=device-width, initial-scale=1.0">
+    <meta name="viewport"  content=  "width=device-width, initial-scale=1.0">
     <title>MIO Service Request System</title>
     <style>
-
-        
         :root {
-          
             --mio-green: #0C6A39;
             --mio-orange: #f26421;
             --mio-black: #000000;
-            
-          
             --bg-color: #f4f6f8;
             --card-bg: #ffffff;
             --text-primary: #333333;
@@ -23,27 +16,6 @@
             --border-color: #cccccc;
             --input-bg: #ffffff;
         }
-
- .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background-color: #f8f9fa;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    .logo-link {
-      display: inline-block;
-    }
-    .logo-img {
-      display: block;
-      max-height: 50px; /* Limits logo height dynamically */
-      width: auto;
-    }
-
- 
-
-
 
         * {
             box-sizing: border-box;
@@ -66,7 +38,6 @@
             padding: 3rem;
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            /* Logo accent lines */
             border-top: 6px solid var(--mio-green);
             position: relative;
         }
@@ -289,7 +260,6 @@
             background-color: #d87c00;
         }
 
-        /* Table Styles */
         .table-responsive {
             overflow-x: auto;
             margin-top: 1.5rem;
@@ -362,7 +332,6 @@
             color: white;
         }
 
-        /* Modal Styles */
         .modal {
             display: none; 
             position: fixed; 
@@ -414,94 +383,29 @@
             color: var(--text-secondary);
         }
 
-        /* Print Styles */
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            /* Hide the main app container if the modal is open */
-            body.modal-open .app-container {
-                display: none !important;
-            }
-            body.modal-open .modal {
-                position: static;
-                background: transparent;
-                display: block;
-            }
-            body.modal-open .modal-content {
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                border: none;
-                box-shadow: none;
-            }
-            body.modal-open .close-btn, 
-            body.modal-open .print-btn {
-                display: none !important;
-            }
-
-            /* Default print styles for the form itself */
-            body:not(.modal-open) .app-container {
-                box-shadow: none;
-                border: none;
-                padding: 0;
-                border-top: none;
-            }
-            body:not(.modal-open) .app-container::after, 
-            body:not(.modal-open) .tabs, 
-            body:not(.modal-open) .btn-group {
-                display: none !important;
-            }
-            body:not(.modal-open) input[type="text"], 
-            body:not(.modal-open) input[type="date"], 
-            body:not(.modal-open) textarea {
-                border: none;
-                border-bottom: 1px solid var(--border-color);
-                background: transparent;
-            }
-            body:not(.modal-open) .signature-box input {
-                border-bottom: 1px solid var(--mio-black);
-            }
+        .summary-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border: 1px solid var(--border-color);
         }
 
-         .logo-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    padding: 20px 0;
-}
-
-.logo-header a {
-    display: flex;
-    align-items: center;
-}
-
-.logo-header img {
-    height: 60px;
-    width: auto;
-    object-fit: contain;
-}
+        @media print {
+            body { background: white; padding: 0; }
+            body.modal-open .app-container { display: none !important; }
+            body.modal-open .modal { position: static; background: transparent; display: block; }
+            body.modal-open .modal-content { width: 100%; margin: 0; padding: 0; border: none; box-shadow: none; }
+            body.modal-open .close-btn, body.modal-open .print-btn { display: none !important; }
+            body:not(.modal-open) .app-container { box-shadow: none; border: none; padding: 0; border-top: none; }
+            body:not(.modal-open) .app-container::after, body:not(.modal-open) .tabs, body:not(.modal-open) .btn-group { display: none !important; }
+            body:not(.modal-open) input[type="text"], body:not(.modal-open) input[type="date"], body:not(.modal-open) textarea { border: none; border-bottom: 1px solid var(--border-color); background: transparent; }
+            body:not(.modal-open) .signature-box input { border-bottom: 1px solid var(--mio-black); }
+        }
     </style>
 </head>
 <body>
     <div class="app-container">
         <header>
-
-            <a href="/">
-  <img src="MIO LOGO.png" alt="MIO logo placeholder" width="150" height="50">
-</a>
-
-<a href="/">
-  <img src="LUPAD Logo COLOR.png" alt="Company Logo Placeholder" width="150" height="50">
-</a>
-
-<a href="/">
-  <img src="LGU MANOLO FORTICH LOGO (1).png" alt="Company Logo Placeholder" width="150" height="50">
-</a>
-
-
             <h1>Service Request Form</h1>
             <p>Municipal Information Office &bull; Manolo Fortich</p>
             <nav class="tabs">
@@ -562,17 +466,17 @@
                 <div class="signatures-grid">
                     <div class="signature-box">
                         <h4>(A) Requested By:</h4>
-                        <input type="text" id="reqByName" placeholder="Printed Name">
+                        <input type="text" id="reqByName">
                         <input type="date" id="reqByDate">
                     </div>
                     <div class="signature-box">
                         <h4>(B) Accepted By:</h4>
-                        <input type="text" id="accByName" placeholder="Printed Name">
+                        <input type="text" id="accByName">
                         <input type="date" id="accByDate">
                     </div>
                     <div class="signature-box">
                         <h4>(C) MIO Personnel Incharge:</h4>
-                        <input type="text" id="mioByName" placeholder="Printed Name">
+                        <input type="text" id="mioByName">
                         <input type="date" id="mioByDate">
                     </div>
                 </div>
@@ -597,24 +501,24 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="tableBody">
-                        </tbody>
+                    <tbody id="tableBody"></tbody>
                 </table>
+            </div>
+
+            <div class="summary-box">
+                <h3>Requests per Month</h3>
+                <div id="monthlySummary"></div>
             </div>
         </section>
     </div>
 
-    <!-- View Record Modal -->
     <div id="viewModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <header style="border-bottom: 1px solid #eee; margin-bottom: 1.5rem; padding-bottom: 1rem;">
                 <h2 style="color: var(--mio-black); text-transform: uppercase; font-size: 18px;">Service Request Details</h2>
-                <p style="color: var(--text-secondary); font-size: 12px; text-transform: uppercase;">Municipal Information Office &bull; Manolo Fortich</p>
             </header>
-            <div id="modalDetails">
-                <!-- Details will be injected here via JavaScript -->
-            </div>
+            <div id="modalDetails"></div>
             <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
                 <button type="button" class="print-btn" onclick="window.print()" style="width: auto; padding: 0.6rem 1.5rem;">Print Record</button>
             </div>
@@ -622,8 +526,17 @@
     </div>
 
     <script>
-        let database = [];
+        let database = JSON.parse(localStorage.getItem('mio_requests')) || [];
         let currentEditId = null;
+
+        window.onload = function() {
+            renderTable();
+            renderSummary();
+        };
+
+        function saveData() {
+            localStorage.setItem('mio_requests', JSON.stringify(database));
+        }
 
         function switchTab(tab) {
             document.getElementById('submit-view').classList.remove('active');
@@ -634,19 +547,17 @@
             if (tab === 'submit') {
                 document.getElementById('submit-view').classList.add('active');
                 document.getElementById('btn-submit-tab').classList.add('active');
-                if(!currentEditId) {
-                    document.getElementById('formSubmitBtn').textContent = "Save Record";
-                }
+                if(!currentEditId) document.getElementById('formSubmitBtn').textContent = "Save Record";
             } else {
                 document.getElementById('manage-view').classList.add('active');
                 document.getElementById('btn-manage-tab').classList.add('active');
                 renderTable();
+                renderSummary();
             }
         }
 
         document.getElementById('requestForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
             let selectedTypes = [];
             document.querySelectorAll('input[name="reqType"]:checked').forEach(checkbox => {
                 if (checkbox.value === 'Others') {
@@ -677,13 +588,14 @@
             if (currentEditId) {
                 const index = database.findIndex(r => r.id === currentEditId);
                 database[index] = record;
-                currentEditId = null; 
+                currentEditId = null;
                 alert("Record updated.");
             } else {
                 database.push(record);
                 alert("Record saved.");
             }
-
+            
+            saveData();
             this.reset();
             document.getElementById('formSubmitBtn').textContent = "Save Record";
         });
@@ -691,16 +603,10 @@
         function renderTable() {
             const tbody = document.getElementById('tableBody');
             tbody.innerHTML = '';
-
-            // Sort database array by date (descending: newest to oldest)
-            const sortedDatabase = [...database].sort((a, b) => {
-                return new Date(b.date) - new Date(a.date);
-            });
-
+            const sortedDatabase = [...database].sort((a, b) => new Date(b.date) - new Date(a.date));
             sortedDatabase.forEach(record => {
                 const tr = document.createElement('tr');
                 const typesStr = record.requestTypes.join(', ');
-
                 tr.innerHTML = `
                     <td><strong>${record.controlNo || '-'}</strong></td>
                     <td>${record.date}</td>
@@ -716,29 +622,36 @@
             });
         }
 
-        // View Record functionality
+        function renderSummary() {
+            const summaryDiv = document.getElementById('monthlySummary');
+            const counts = {};
+            database.forEach(r => {
+                if(!r.date) return;
+                const d = new Date(r.date);
+                const monthYear = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+                counts[monthYear] = (counts[monthYear] || 0) + 1;
+            });
+
+            let html = '<table style="width: auto; min-width: 300px;"><thead><tr><th>Month</th><th>Count</th></tr></thead><tbody>';
+            for(const [month, count] of Object.entries(counts)) {
+                html += `<tr><td>${month}</td><td><strong>${count}</strong></td></tr>`;
+            }
+            html += '</tbody></table>';
+            summaryDiv.innerHTML = Object.keys(counts).length ? html : 'No records found.';
+        }
+
         function viewRecord(id) {
             const record = database.find(r => r.id === id);
             if (!record) return;
-
             const modalDetails = document.getElementById('modalDetails');
             const typesStr = record.requestTypes.join(', ') || 'None';
-            
             modalDetails.innerHTML = `
                 <div class="detail-row"><span class="detail-label">Date:</span> ${record.date || '-'}</div>
                 <div class="detail-row"><span class="detail-label">Control No:</span> <strong>${record.controlNo || '-'}</strong></div>
                 <div class="detail-row"><span class="detail-label">Requesting Office:</span> ${record.officeName || '-'}</div>
                 <div class="detail-row"><span class="detail-label">Type(s) of Request:</span> ${typesStr}</div>
                 <div class="detail-row"><span class="detail-label">Particulars:</span> ${record.particulars || '-'}</div>
-                
-                <h3 style="margin-top: 2rem; font-size: 14px;">Signatures</h3>
-                <div style="background: #f9f9f9; padding: 1rem; border: 1px solid #eee;">
-                    <div class="detail-row"><span class="detail-label">Requested By:</span> ${record.signatures.requestedByName || '-'} <em style="color:#777; font-size:12px; margin-left: 10px;">${record.signatures.requestedByDate || ''}</em></div>
-                    <div class="detail-row"><span class="detail-label">Accepted By:</span> ${record.signatures.acceptedByName || '-'} <em style="color:#777; font-size:12px; margin-left: 10px;">${record.signatures.acceptedByDate || ''}</em></div>
-                    <div class="detail-row"><span class="detail-label">MIO Incharge:</span> ${record.signatures.mioName || '-'} <em style="color:#777; font-size:12px; margin-left: 10px;">${record.signatures.mioDate || ''}</em></div>
-                </div>
             `;
-            
             document.getElementById('viewModal').style.display = 'block';
             document.body.classList.add('modal-open');
         }
@@ -748,28 +661,15 @@
             document.body.classList.remove('modal-open');
         }
 
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('viewModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
         function editRecord(id) {
             const record = database.find(r => r.id === id);
             if (!record) return;
-
             currentEditId = id;
-            
             document.getElementById('reqDate').value = record.date;
             document.getElementById('controlNo').value = record.controlNo;
             document.getElementById('officeName').value = record.officeName;
             document.getElementById('particulars').value = record.particulars;
-
             document.querySelectorAll('input[name="reqType"]').forEach(cb => cb.checked = false);
-            document.getElementById('othersText').value = '';
-
             record.requestTypes.forEach(type => {
                 if (type.startsWith('Others:')) {
                     document.getElementById('othersCheck').checked = true;
@@ -779,14 +679,12 @@
                     if (cb) cb.checked = true;
                 }
             });
-
             document.getElementById('reqByName').value = record.signatures.requestedByName;
             document.getElementById('reqByDate').value = record.signatures.requestedByDate;
             document.getElementById('accByName').value = record.signatures.acceptedByName;
             document.getElementById('accByDate').value = record.signatures.acceptedByDate;
             document.getElementById('mioByName').value = record.signatures.mioName;
             document.getElementById('mioByDate').value = record.signatures.mioDate;
-
             document.getElementById('formSubmitBtn').textContent = "Update Record";
             switchTab('submit');
         }
@@ -795,6 +693,8 @@
             if (confirm("Delete this record permanently?")) {
                 database = database.filter(r => r.id !== id);
                 renderTable();
+                renderSummary();
+                saveData();
             }
         }
     </script>
